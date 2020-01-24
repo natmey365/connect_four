@@ -1,1 +1,1 @@
-# connect_four_ai
+# connect_four
