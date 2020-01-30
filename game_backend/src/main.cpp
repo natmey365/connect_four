@@ -1,13 +1,18 @@
-// Top level C++ file that creates and runs a Game object
+// Top level C++ file
 
 #include <iostream>
 #include "game.cpp"
 
 int main()
 {
-	//Game game;
-	//Space space;
-	//std::cout << space.isBlank() << std::endl;
 	Board board;
-	std::cout << !board.columnFull(0) << std::endl;
+	std::cout << board.placePiece(0, true) << std::endl;
+	std::cout << board.placePiece(0, true) << std::endl;
+	std::cout << board.placePiece(0, true) << std::endl;
+	std::cout << board.placePiece(0, true) << std::endl;
+	std::cout << board.placePiece(0, true) << std::endl;
+	std::cout << board.placePiece(0, true) << std::endl;
+	std::cout << board.placePiece(0, true) << std::endl;
+	std::cout << board.placePiece(0, true) << std::endl;
+	std::cout << board.placePiece(0, true) << std::endl;
 }

@@ -2,18 +2,17 @@
 #ifndef SPACE_H
 #define SPACE_H
 
-#include <string>
+#include "piece.h"
 
 class Space
 {
 	public:
-		// Variables
-		std::string status;
-
 		Space();
 		bool isBlank();
+		void placePiece(bool boolean);
 
 	private:
+		Piece *piece;
 
 };
 

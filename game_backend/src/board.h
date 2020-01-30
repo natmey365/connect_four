@@ -7,13 +7,12 @@
 class Board
 {
 	public:
-		Space spaces[7][6];
-
 		Board();
 		bool columnFull(int j);
+		int placePiece(int j, bool boolean);
 
 	private:
-
+		Space spaces[6][7];
 };
 
 #endif
