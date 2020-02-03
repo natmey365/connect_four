@@ -6,7 +6,6 @@
 Piece::Piece(bool boolean)
 {
 	is_white = boolean;
-	std::cout << is_white << std::endl;
 }
 
 bool Piece::isWhite()

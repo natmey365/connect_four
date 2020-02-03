@@ -8,8 +8,8 @@ class Space
 {
 	public:
 		Space();
-		bool isBlank();
-		void placePiece(bool boolean);
+		int status();
+		int placePiece(bool boolean);
 
 	private:
 		Piece *piece;

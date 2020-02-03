@@ -5,14 +5,5 @@
 
 int main()
 {
-	Board board;
-	std::cout << board.placePiece(0, true) << std::endl;
-	std::cout << board.placePiece(0, true) << std::endl;
-	std::cout << board.placePiece(0, true) << std::endl;
-	std::cout << board.placePiece(0, true) << std::endl;
-	std::cout << board.placePiece(0, true) << std::endl;
-	std::cout << board.placePiece(0, true) << std::endl;
-	std::cout << board.placePiece(0, true) << std::endl;
-	std::cout << board.placePiece(0, true) << std::endl;
-	std::cout << board.placePiece(0, true) << std::endl;
+	Game game(new RandomPlayer, new RandomPlayer);
 }

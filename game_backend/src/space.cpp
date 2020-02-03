@@ -6,25 +6,21 @@
 
 Space::Space() : piece(0)
 {
-	std::cout << "Space Constructor\n";
 }
 
-bool Space::isBlank()
+int Space::status()
 {
 	if(piece == NULL)
-	{
-		std::cout << "blank\n";
-		return true;
-	}
-	return false;
+		return 0;
+	else if(piece->isWhite())
+		return 1;
+	else
+		return -1;
 }
-void Space::placePiece(bool boolean)
+int Space::placePiece(bool boolean)
 {
 	if(piece != NULL)
-	{
-		delete(piece);
-		std::cout << "deleted piece before add\n";
-	}
+		return 1;
 	piece = new Piece(boolean);
-	std::cout << "placed piece\n";
+	return 0;
 }

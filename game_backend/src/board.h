@@ -10,6 +10,7 @@ class Board
 		Board();
 		bool columnFull(int j);
 		int placePiece(int j, bool boolean);
+		int spaceStatus(int i, int j);
 
 	private:
 		Space spaces[6][7];
