@@ -1,0 +1,9 @@
+CFLAGS = -O
+CC = g++
+SRC = main.cpp game.cpp board.cpp space.cpp piece.cpp ../../ai/src/randomPlayer.cpp
+OBJ = $(SRC:.cpp = .o)
+
+main: $(OBJ)
+	$(CC) $(CFLAGS) -o NumTest $(OBJ)
+clean:
+	rm -f core *.o
