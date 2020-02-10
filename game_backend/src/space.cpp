@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include "space.h"
-#include "piece.cpp"
+#include "piece.h"
 
 Space::Space() : piece(0)
 {

@@ -12,14 +12,16 @@ class Game
 		Game(Player *player1, Player *player2);
 
 	private:
-		bool whitesTurn;
-		Board *board;
+		bool   whitesTurn;
+		int    winner;
+		Board  *board;
 		Player *whitePlayer;
 		Player *blackPlayer;
-		
-		void printBoard();
-		int checkWinner();
-		void move();
+		//Data   *data
+
+		void   printBoard();
+		int    checkWinner();
+		void   move();
 };
 
 #endif

@@ -1,7 +1,8 @@
 // Top level C++ file
 
 #include <iostream>
-#include "game.cpp"
+#include "game.h"
+#include "randomPlayer.h"
 
 int main()
 {

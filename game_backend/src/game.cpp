@@ -2,30 +2,23 @@
 
 #include <iostream>
 #include "game.h"
-#include "board.cpp"
-#include "player.cpp"
+#include "board.h"
+#include "player.h"
 
-Game::Game(Player *player1, Player *player2) : whitesTurn(true), board(new Board)
+Game::Game(Player *player1, Player *player2) : whitesTurn(true), board(new Board), winner(0)
 {
 	whitePlayer = player1;
 	blackPlayer = player2;
-	while(1)	// Game loop
+	while(winner == 0)	// Game loop
 	{
-		printBoard();
-		if(checkWinner() == 1)
-		{
+		printBoard();	
+		winner = checkWinner();
+		if(winner == 1)
 			std::cout << "White Wins!\n";
-			break;
-		}
-		else if(checkWinner() == -1)
-		{
+		else if(winner == -1)
 			std::cout << "Black Wins\n";
-			break;
-		}
 		else
-		{
 			move();
-		}
 	}
 }
 
@@ -49,69 +42,72 @@ void Game::printBoard()
 
 int Game::checkWinner()
 {
+	int spaceStatus;
 	for(int i = 0; i < 6; i++)
 	{
 		for(int j = 0; j < 7; j++)
 		{
+			if((spaceStatus = board->spaceStatus(i, j)) == 0)
+				continue;
 			if(i+3 < 6)
 			{
-				if(board->spaceStatus(i, j) == board->spaceStatus(i+1, j) &&
-				   board->spaceStatus(i, j) == board->spaceStatus(i+2, j) &&
-				   board->spaceStatus(i, j) == board->spaceStatus(i+3, j) )
-					return board->spaceStatus(i, j);
+				if(spaceStatus == board->spaceStatus(i+1, j) &&
+				   spaceStatus == board->spaceStatus(i+2, j) &&
+				   spaceStatus == board->spaceStatus(i+3, j))
+					return spaceStatus;
 			}
 			if(i+3 < 6 && j-3 >= 0)
 			{
-				if(board->spaceStatus(i, j) == board->spaceStatus(i+1, j-1) &&
- 				   board->spaceStatus(i, j) == board->spaceStatus(i+2, j-2) &&
- 				   board->spaceStatus(i, j) == board->spaceStatus(i+3, j-3) )
- 					return board->spaceStatus(i, j);
+				if(spaceStatus == board->spaceStatus(i+1, j-1) &&
+ 				   spaceStatus == board->spaceStatus(i+2, j-2) &&
+ 				   spaceStatus == board->spaceStatus(i+3, j-3))
+ 					return spaceStatus;
 			}
 			if(j-3 >= 0)
 			{
-                                if(board->spaceStatus(i, j) == board->spaceStatus(i, j-1) &&
-                                   board->spaceStatus(i, j) == board->spaceStatus(i, j-2) &&
-                                   board->spaceStatus(i, j) == board->spaceStatus(i, j-3) )
-                                        return board->spaceStatus(i, j);
+                                if(spaceStatus == board->spaceStatus(i, j-1) &&
+                                   spaceStatus == board->spaceStatus(i, j-2) &&
+                                   spaceStatus == board->spaceStatus(i, j-3))
+                                        return spaceStatus;
 			}
                         if(i-3 >= 0 && j-3 >= 0)
                         {
-                                if(board->spaceStatus(i, j) == board->spaceStatus(i-1, j-1) &&
-                                   board->spaceStatus(i, j) == board->spaceStatus(i-2, j-2) &&
-                                   board->spaceStatus(i, j) == board->spaceStatus(i-3, j-3) )
-                                        return board->spaceStatus(i, j);
+                                if(spaceStatus == board->spaceStatus(i-1, j-1) &&
+                                   spaceStatus == board->spaceStatus(i-2, j-2) &&
+                                   spaceStatus == board->spaceStatus(i-3, j-3))
+                                        return spaceStatus;
                         }
                         if(i-3 >= 0)
                         {
-                                if(board->spaceStatus(i, j) == board->spaceStatus(i-1, j) &&
-                                   board->spaceStatus(i, j) == board->spaceStatus(i-2, j) &&
-                                   board->spaceStatus(i, j) == board->spaceStatus(i-3, j) )
-                                        return board->spaceStatus(i, j);
+                                if(spaceStatus == board->spaceStatus(i-1, j) &&
+                                   spaceStatus == board->spaceStatus(i-2, j) &&
+                                   spaceStatus == board->spaceStatus(i-3, j))
+                                        return spaceStatus;
                         }
                         if(i-3 >= 0 && j+3 < 7)
                         {
-                                if(board->spaceStatus(i, j) == board->spaceStatus(i-1, j+1) &&
-                                   board->spaceStatus(i, j) == board->spaceStatus(i-2, j+2) &&
-                                   board->spaceStatus(i, j) == board->spaceStatus(i-3, j+3) )
-                                        return board->spaceStatus(i, j);
+                                if(spaceStatus == board->spaceStatus(i-1, j+1) &&
+                                   spaceStatus == board->spaceStatus(i-2, j+2) &&
+                                   spaceStatus == board->spaceStatus(i-3, j+3))
+                                        return spaceStatus;
                         }
                         if(j+3 < 7)
                         {
-                                if(board->spaceStatus(i, j) == board->spaceStatus(i, j+1) &&
-                                   board->spaceStatus(i, j) == board->spaceStatus(i, j+2) &&
-                                   board->spaceStatus(i, j) == board->spaceStatus(i, j+3) )
-                                        return board->spaceStatus(i, j);
+                                if(spaceStatus == board->spaceStatus(i, j+1) &&
+                                   spaceStatus == board->spaceStatus(i, j+2) &&
+                                   spaceStatus == board->spaceStatus(i, j+3) )
+                                        return spaceStatus;
                         }
                         if(i+3 < 6 && j+3 < 7)
                         {
-                                if(board->spaceStatus(i, j) == board->spaceStatus(i+1, j+1) &&
-                                   board->spaceStatus(i, j) == board->spaceStatus(i+2, j+2) &&
-                                   board->spaceStatus(i, j) == board->spaceStatus(i+3, j+3) )
-                                        return board->spaceStatus(i, j);
+                                if(spaceStatus == board->spaceStatus(i+1, j+1) &&
+                                   spaceStatus == board->spaceStatus(i+2, j+2) &&
+                                   spaceStatus == board->spaceStatus(i+3, j+3) )
+                                        return spaceStatus;
                         }
-			return 0;
 		}
 	}
+	return 0;
 }
 
 void Game::move()
@@ -127,7 +123,7 @@ void Game::move()
 	else
 	{
 	        while(board->placePiece(blackPlayer->move(board), whitesTurn))
- 		{
+		{
  			std::cout << "Invalid Move!\n";
 		}
 		whitesTurn = true;

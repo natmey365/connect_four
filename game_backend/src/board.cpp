@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include "board.h"
-#include "space.cpp"
+#include "space.h"
 
 Board::Board()
 {
