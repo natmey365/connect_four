@@ -1,8 +1,8 @@
 CXX=g++
-CXXFLAGS=-Wall -Igame_backend/inc -Iai/inc -Idata/inc
+CXXFLAGS=-Wall -Ibackend/inc -Iai/inc -Idata/inc
 SRC=src
 BLD=build
-BCKND=game_backend/src
+BCKND=backend/src
 AI=ai/src
 DATA=data/src
 INC=
