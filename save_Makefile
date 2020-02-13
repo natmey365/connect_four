@@ -1,0 +1,25 @@
+CXX=g++
+CXXFLAGS=-Wall -Igame_backend/inc -Iai/inc -Idata/inc
+OBJS=${BLD}/main.o ${BLD}/game.o ${BLD}/board.o ${BLD}/space.o ${BLD}/piece.o ${BLD}/player.o ${BLD}/randomPlayer.o
+SRC=src
+BLD=build
+BCKND=game_backend/src
+AI=ai/src
+DATA=data/src
+
+all: ${OBJS} ${}
+
+main: ${OBJS}
+	${CXX} ${CXXFLAGS} -o $@ $^
+
+${BLD}/%.o: ${SRC}/%.cpp
+	${CXX} ${CXXFLAGS} -c -o $@ $<
+
+${BLD}/%.o: ${BCKND}/%.cpp
+	${CXX} ${CXXFLAGS} -c -o $@ $<
+
+${BLD}/%.o: ${AI}/%.cpp
+	${CXX} ${CXXFLAGS} -c -o $@ $<
+
+clean:
+	rm -rf *.o build/*.o main

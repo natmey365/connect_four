@@ -2,6 +2,10 @@
 
 #include <iostream>
 #include "game.h"
+#include "board.h"
+#include "space.h"
+#include "piece.h"
+#include "player.h"
 #include "randomPlayer.h"
 
 int main()

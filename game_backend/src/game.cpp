@@ -5,7 +5,7 @@
 #include "board.h"
 #include "player.h"
 
-Game::Game(Player *player1, Player *player2) : whitesTurn(true), board(new Board), winner(0)
+Game::Game(Player *player1, Player *player2) : whitesTurn(true), winner(0), board(new Board)
 {
 	whitePlayer = player1;
 	blackPlayer = player2;

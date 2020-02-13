@@ -3,7 +3,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#inlcude "board.h"
+#include "board.h"
 
 class Player
 {
