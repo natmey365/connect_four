@@ -9,6 +9,10 @@ class Player
 {
 	public:
 		virtual int move(Board *board) = 0;
+		void setColor(bool b);
+
+	private:
+		bool color;
 };
 
 #endif
