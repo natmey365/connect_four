@@ -17,4 +17,4 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp #$(INC_DIR)/%.h
 	g++ $(CPPFLAGS) $(CXXFLAGS) -I$(INC_DIR) -c -o $@ $<
 
 clean:
-	rm -r ./obj/
+	rm -r ./obj/ ./main
