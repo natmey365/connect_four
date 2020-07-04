@@ -42,12 +42,12 @@ void Game::printBoard()
 
 int Game::checkWinner()
 {
-	int spaceStatus = board->spaceStatus(i, j); 
+	int spaceStatus;
 	for(int i = 0; i < 6; i++)
 	{
 		for(int j = 0; j < 7; j++)
 		{
-			if((spaceStatus) == 0)
+			if((spaceStatus = board->spaceStatus(i, j)) == 0)
 				continue;
 			if(i+3 < 6)
 			{
