@@ -1,4 +1,4 @@
-./main
-./obj/
+main
+obj/
 *.o
 *.swp
