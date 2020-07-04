@@ -7,6 +7,8 @@ LDFLAGS   :=
 CPPFLAGS  :=
 CXXFLAGS  :=
 
+.PHONY: clean
+
 main: $(OBJ_FILES)
 	g++ $(LDFLAGS) -o $@ $^
 
