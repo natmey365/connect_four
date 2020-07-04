@@ -9,7 +9,7 @@ NN_SRC_FILES := $(wildcard $(NN_SRC_DIR)/*.cpp)
 OBJ_FILES    := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES)) \
                 $(patsubst $(NN_SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(NN_SRC_FILES))
 LDFLAGS     :=
-CPPFLAGS    :=
+CPPFLAGS    := -I$(INC_DIR) -I$(NN_INC_DIR)
 CXXFLAGS    := -Wall
 
 .PHONY: clean
@@ -19,12 +19,12 @@ $(EXECUTABLE): $(OBJ_FILES)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(INC_DIR)/%.h
 	@mkdir -p obj
-	g++ $(CPPFLAGS) $(CXXFLAGS) -I$(INC_DIR) -c -o $@ $<
+	g++ $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
 
 # Compile neural_network repository files
 $(OBJ_DIR)/%.o: $(NN_SRC_DIR)/%.cpp $(NN_INC_DIR)/%.h
 	@mkdir -p obj
-	g++ $(CPPFLAGS) $(CXXFLAGS) -I$(NN_INC_DIR) -c -o $@ $<
+	g++ $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
 
 clean:
 	rm -rf $(OBJ_DIR)  $(EXECUTABLE)
