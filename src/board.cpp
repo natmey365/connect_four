@@ -31,3 +31,8 @@ int Board::spaceStatus(int i, int j)
 {
 	return spaces[i][j].status();
 }
+
+Board::Board(const Board& rhs)
+{
+	
+}
