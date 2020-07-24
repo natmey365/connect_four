@@ -15,7 +15,7 @@ class Board
 		void print();
 
 	private:
-		Space spaces[6][7];
+		Space *spaces[6][7];
 };
 
 #endif
