@@ -11,4 +11,6 @@
 #include "player.h"
 #include "randomPlayer.h"
 
+int main();
+
 #endif
