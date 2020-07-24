@@ -30,17 +30,15 @@ CXXFLAGS    := -Wall
 $(EXECUTABLE): $(OBJ_FILES)
 	$(CPP) $(LDFLAGS) -o $@ $^
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(INC_DIR)/%.h
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(INC_DIR)/%.h | $(OBJ_DIR)
 	$(CPP) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
 
 # Compile neural_network repository files
-$(OBJ_DIR)/%.o: $(NN_SRC_DIR)/%.cpp $(NN_INC_DIR)/%.h
+$(OBJ_DIR)/%.o: $(NN_SRC_DIR)/%.cpp $(NN_INC_DIR)/%.h | $(OBJ_DIR)
 	$(CPP) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
 
-$(OBJ_FILES): | $(OBJ_DIR)
-
 $(OBJ_DIR):
-	mkdir -p ./obj
+	mkdir -p $(OBJ_DIR)
 
 clean:
 	rm -rf $(OBJ_DIR)  $(EXECUTABLE)
