@@ -37,8 +37,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(INC_DIR)/%.h
 $(OBJ_DIR)/%.o: $(NN_SRC_DIR)/%.cpp $(NN_INC_DIR)/%.h
 	$(CPP) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
 
-all: $(OBJ_FILES)
-
 $(OBJ_FILES): | $(OBJ_DIR)
 
 $(OBJ_DIR):
