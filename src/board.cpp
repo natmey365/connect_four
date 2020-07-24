@@ -34,5 +34,31 @@ int Board::spaceStatus(int i, int j)
 
 Board::Board(const Board& rhs)
 {
-	
+	std::cout << "Started to copy!\n";
+	for(int i = 0; i < 6; i++)
+	{
+		std::cout << "copying\n";
+		for(int j = 0; j < 7; j++)
+		{
+			spaces[i][j] = rhs.spaces[i][j];
+		}
+	}
+}
+
+void Board::print()
+{
+        for(int i = 0; i < 6; i++)
+        {
+                for(int j = 0; j < 7; j++)
+                {
+                        if(this->spaceStatus(i, j) == 1)
+                                std::cout << "W";
+                        else if(this->spaceStatus(i, j) == -1)
+                                std::cout << "B";
+                        else
+                                std::cout << " ";
+                }
+                std::cout << std::endl;
+        }
+        std::cout << std::endl;
 }

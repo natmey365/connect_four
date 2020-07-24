@@ -24,20 +24,7 @@ Game::Game(Player *player1, Player *player2) : whitesTurn(true), winner(0), boar
 
 void Game::printBoard()
 {
-	for(int i = 0; i < 6; i++)
-	{
-		for(int j = 0; j < 7; j++)
-		{
-			if(board->spaceStatus(i, j) == 1)
-				std::cout << "W";
-			else if(board->spaceStatus(i, j) == -1)
-				std::cout << "B";
-			else
-				std::cout << " ";
-		}
-		std::cout << std::endl;
-	}
-	std::cout << std::endl;
+	board->print();
 }
 
 int Game::checkWinner()
