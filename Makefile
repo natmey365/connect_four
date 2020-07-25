@@ -15,11 +15,9 @@ OBJ_FILES    := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES)) \
 #======================================================
 # Compiler and flags
 #======================================================
-CXX         :=
 CPP         := g++
 LDFLAGS     :=
-CPPFLAGS    := -I$(INC_DIR) -I$(NN_INC_DIR)
-CXXFLAGS    := -Wall
+CPPFLAGS    := -Wall -I$(INC_DIR) -I$(NN_INC_DIR)
 
 #======================================================
 # Targets
@@ -31,11 +29,11 @@ $(EXECUTABLE): $(OBJ_FILES)
 	$(CPP) $(LDFLAGS) -o $@ $^
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(INC_DIR)/%.h | $(OBJ_DIR)
-	$(CPP) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
+	$(CPP) $(CPPFLAGS) -c -o $@ $<
 
 # Compile neural_network repository files
 $(OBJ_DIR)/%.o: $(NN_SRC_DIR)/%.cpp $(NN_INC_DIR)/%.h | $(OBJ_DIR)
-	$(CPP) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
+	$(CPP) $(CPPFLAGS) -c -o $@ $<
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
