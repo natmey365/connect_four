@@ -14,10 +14,10 @@ int EvaluativeNNPlayer::move(Board& board)
 	for(int i = 0; i < 6; i++)
 	{
 		boards[i] = board;
-		//if(!boards[i].placePiece(i, isWhite)) // Failed
-		//	evaluations[i] = NULL;
-		//else
-		//	evaluations[i] = 1;//nn.forwardProp(boards[i]);	
+		if(!boards[i].placePiece(i, getColor())) // Failed
+			evaluations[i] = NULL;
+		else
+			evaluations[i] = 1;//nn.forwardProp(boards[i]);	
 	}
 	// Choose the move with the best evaluation and return it
 }
