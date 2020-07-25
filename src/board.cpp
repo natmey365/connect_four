@@ -53,11 +53,12 @@ void Board::print()
 bool Board::full()
 {
 	if((spaces[0][0].status() != 0) &&
-           (spaces[1][0].status() != 0) &&
-           (spaces[2][0].status() != 0) &&
-           (spaces[3][0].status() != 0) &&
-           (spaces[4][0].status() != 0) &&
-           (spaces[5][0].status() != 0))
+           (spaces[0][1].status() != 0) &&
+           (spaces[0][2].status() != 0) &&
+           (spaces[0][3].status() != 0) &&
+           (spaces[0][4].status() != 0) &&
+           (spaces[0][5].status() != 0) &&
+            spaces[0][6].status())
 		return true;
 	else
 		return false;
