@@ -12,6 +12,7 @@ class Board
 		int placePiece(int j, bool boolean);
 		int spaceStatus(int i, int j);
 		void print();
+		bool full();
 
 	private:
 		Space spaces[6][7];
