@@ -57,8 +57,7 @@ bool Board::full()
            (spaces[2][0].status() != 0) &&
            (spaces[3][0].status() != 0) &&
            (spaces[4][0].status() != 0) &&
-           (spaces[5][0].status() != 0) &&
-           (spaces[6][0].status() != 0))
+           (spaces[5][0].status() != 0))
 		return true;
 	else
 		return false;

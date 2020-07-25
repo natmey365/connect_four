@@ -12,6 +12,8 @@
 #include "player.h"
 #include "randomPlayer.h"
 #include "evaluativeNNPlayer.h"
+#include "humanPlayer.h"
+
 #include "neuralNetwork.h"
 
 int main(int argc, char* argv[]);

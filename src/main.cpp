@@ -10,6 +10,8 @@ int main(int argc, char* argv[])
 		if(!strcmp(argv[i], "-v"))
 			verbose = true;
 	}
+
 	Game game(new RandomPlayer, new RandomPlayer, verbose);
-	std::cout << game.play() << std::endl;
+	std::string gameData = game.play();
+	std::cout << "Game data: " << gameData << std::endl;
 }
