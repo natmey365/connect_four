@@ -125,7 +125,10 @@ void Game::move()
 	while(board.placePiece(playerToMove->move(board), whitesTurn))
 	{
 		if(verbose)
+		{
 			std::cout << "Invalid Move!\n";
+			printBoard();
+		}
 	}
 	
 	if(whitesTurn)
