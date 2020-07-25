@@ -8,7 +8,6 @@ class Board
 {
 	public:
 		Board();
-		Board(const Board& rhs);
 		bool columnFull(int j);
 		int placePiece(int j, bool boolean);
 		int spaceStatus(int i, int j);

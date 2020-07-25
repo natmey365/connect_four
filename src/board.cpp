@@ -5,8 +5,7 @@
 #include "space.h"
 
 Board::Board()
-{
-}
+{}
 
 bool Board::columnFull(int j)
 {
@@ -31,19 +30,6 @@ int Board::spaceStatus(int i, int j)
 {
 	int status = spaces[i][j].status();
 	return status;
-}
-
-Board::Board(const Board& other)
-{
-	std::cout << "Started to copy!\n";
-	for(int i = 0; i < 6; i++)
-	{
-		std::cout << "copying\n";
-		for(int j = 0; j < 7; j++)
-		{
-			spaces[i][j] = other.spaces[i][j];
-		}
-	}
 }
 
 void Board::print()

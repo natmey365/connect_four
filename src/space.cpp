@@ -1,31 +1,24 @@
 // C++ file defining the Space class
 
-#include <iostream>
 #include "space.h"
-#include "piece.h"
 
-Space::Space() : piece(0)
-{
-}
-
-Space::Space(const Space& rhs)
-{
-	
-}
+Space::Space() : occupied(false)
+{}
 
 int Space::status()
 {
-	if(piece == NULL)
+	if(!occupied)
 		return 0;
-	else if(piece->isWhite())
+	else if(isWhite)
 		return 1;
 	else
 		return -1;
 }
 int Space::placePiece(bool boolean)
 {
-	if(piece != NULL)
+	if(occupied)
 		return 1;
-	piece = new Piece(boolean);
+	occupied = true;
+	isWhite = boolean;
 	return 0;
 }

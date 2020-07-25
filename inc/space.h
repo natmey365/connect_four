@@ -2,18 +2,18 @@
 #ifndef SPACE_H
 #define SPACE_H
 
-#include "piece.h"
+#include <iostream>
 
 class Space
 {
 	public:
 		Space();
-		Space(const Space& rhs);
 		int status();
 		int placePiece(bool boolean);
 
 	private:
-		Piece* piece;
+		bool occupied;
+		bool isWhite;
 
 };
 
