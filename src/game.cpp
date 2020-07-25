@@ -19,10 +19,12 @@ int Game::play()
 		if(winner != 0)
 		{
 			if(verbose)
+			{
 				if(winner == 1)
 					std::cout << "White wins!\n";
 				else
 					std::cout << "Black wins!\n";
+			}
 			return winner;
 		}
 		else if(boardFull())
