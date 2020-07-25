@@ -12,7 +12,7 @@ class Player
 		void setColor(bool b);
 
 	private:
-		bool color;
+		bool isWhite;
 };
 
 #endif
