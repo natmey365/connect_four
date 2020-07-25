@@ -3,6 +3,8 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <iostream>
+#include <string.h>
 #include "board.h"
 #include "player.h"
 
@@ -10,7 +12,7 @@ class Game
 {
 	public:
 		Game(Player *player1, Player *player2, bool boolean);
-		int play();
+		char* play();
 
 	private:
 		bool    verbose;

@@ -8,7 +8,7 @@
 Game::Game(Player *player1, Player *player2, bool boolean) : verbose(boolean), whitesTurn(true), winner(0), whitePlayer(player1), blackPlayer(player2), playerToMove(player1)
 {}
 
-int Game::play()
+char* Game::play()
 {
 	while(1)
 	{
@@ -25,13 +25,13 @@ int Game::play()
 				else
 					std::cout << "Black wins!\n";
 			}
-			return winner;
+			return gameData;
 		}
 		else if(boardFull())
 		{
 			if(verbose)
 				std::cout << "Board is full - Tie!\n";
-			return winner;
+			return gameData;
 		}
 		else
 			move();
@@ -131,7 +131,8 @@ void Game::move()
 {
 	while(board.placePiece(playerToMove->move(board), whitesTurn))
 	{
-		std::cout << "Invalid Move!\n";
+		if(verbose)
+			std::cout << "Invalid Move!\n";
 	}
 	
 	if(whitesTurn)
