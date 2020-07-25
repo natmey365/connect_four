@@ -4,6 +4,7 @@
 #define MAIN_H
 
 #include <iostream>
+#include <string.h>
 #include "game.h"
 #include "board.h"
 #include "space.h"
@@ -13,6 +14,6 @@
 #include "evaluativeNNPlayer.h"
 #include "neuralNetwork.h"
 
-int main();
+int main(int argc, char* argv[]);
 
 #endif
