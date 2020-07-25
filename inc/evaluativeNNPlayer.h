@@ -1,7 +1,7 @@
 // C++ header file defining the EvaluativeNNPlayer class
 
-#ifndef EvaluativeNNPLAYER_H
-#define EvaluativeNNPLAYER_H
+#ifndef EVALUATIVENNPLAYER_H
+#define EVALUATIVENNPLAYER_H
 
 #include "player.h"
 #include "neuralNetwork.h"
