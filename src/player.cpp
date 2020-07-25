@@ -6,3 +6,8 @@ void Player::setColor(bool b)
 {
 	isWhite = b;
 }
+
+bool Player::getColor()
+{
+	return isWhite;
+}
