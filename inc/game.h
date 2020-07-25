@@ -11,19 +11,19 @@
 class Game
 {
 	public:
-		Game(Player *player1, Player *player2, bool boolean);
-		char* play();
+		Game(Player* player1, Player* player2, bool boolean);
+		std::string  play();
 
 	private:
-		bool    verbose;
-		bool    whitesTurn;
-		bool    gameOver;
-		int     winner;
-		Board   board;
-		Player* whitePlayer;
-		Player* blackPlayer;
-		Player* playerToMove;
-		char*   gameData;
+		bool        verbose;
+		bool        whitesTurn;
+		bool        gameOver;
+		int         winner;
+		Board       board;
+		Player*     whitePlayer;
+		Player*     blackPlayer;
+		Player*     playerToMove;
+		std::string gameData;
 
 		void   printBoard();
 		int    checkWinner();

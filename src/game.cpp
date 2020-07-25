@@ -6,9 +6,12 @@
 #include "player.h"
 
 Game::Game(Player *player1, Player *player2, bool boolean) : verbose(boolean), whitesTurn(true), winner(0), whitePlayer(player1), blackPlayer(player2), playerToMove(player1)
-{}
+{
+	whitePlayer->setColor(true);
+	blackPlayer->setColor(false);
+}
 
-char* Game::play()
+std::string Game::play()
 {
 	while(1)
 	{
