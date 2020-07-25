@@ -5,18 +5,32 @@
 #include "board.h"
 #include "player.h"
 
-Game::Game(Player *player1, Player *player2) : whitesTurn(true), winner(0)
+Game::Game(Player *player1, Player *player2, bool boolean) : verbose(boolean), whitesTurn(true), winner(0), whitePlayer(player1), blackPlayer(player2), playerToMove(player1)
+{}
+
+int Game::play()
 {
-	whitePlayer = player1;
-	blackPlayer = player2;
-	while(winner == 0)	// Game loop
+	while(1)
 	{
-		printBoard();	
+		if(verbose)
+			printBoard();
+		gameOver = boardFull();
 		winner = checkWinner();
-		if(winner == 1)
-			std::cout << "White Wins!\n";
-		else if(winner == -1)
-			std::cout << "Black Wins\n";
+		if(winner != 0)
+		{
+			if(verbose)
+				if(winner == 1)
+					std::cout << "White wins!\n";
+				else
+					std::cout << "Black wins!\n";
+			return winner;
+		}
+		else if(boardFull())
+		{
+			if(verbose)
+				std::cout << "Board is full - Tie!\n";
+			return winner;
+		}
 		else
 			move();
 	}
@@ -97,22 +111,35 @@ int Game::checkWinner()
 	return 0;
 }
 
+bool Game::boardFull()
+{
+	if((board.spaceStatus(0, 5) != 0) &&
+           (board.spaceStatus(1, 5) != 0) &&
+           (board.spaceStatus(2, 5) != 0) && 
+           (board.spaceStatus(3, 5) != 0) &&
+           (board.spaceStatus(4, 5) != 0) &&
+           (board.spaceStatus(5, 5) != 0) &&
+           (board.spaceStatus(6, 5) != 0))
+		return true;
+	else
+		return false;
+}
+
 void Game::move()
 {
+	while(board.placePiece(playerToMove->move(board), whitesTurn))
+	{
+		std::cout << "Invalid Move!\n";
+	}
+	
 	if(whitesTurn)
 	{
-		while(board.placePiece(whitePlayer->move(board), whitesTurn))
-		{
-			std::cout << "Invalid Move!\n";
-		}
 		whitesTurn = false;
+		playerToMove = whitePlayer;
 	}
 	else
 	{
-	        while(board.placePiece(blackPlayer->move(board), whitesTurn))
-		{
- 			std::cout << "Invalid Move!\n";
-		}
 		whitesTurn = true;
+		playerToMove = blackPlayer;
 	}
 }

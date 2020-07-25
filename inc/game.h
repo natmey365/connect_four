@@ -9,18 +9,23 @@
 class Game
 {
 	public:
-		Game(Player *player1, Player *player2);
+		Game(Player *player1, Player *player2, bool boolean);
+		int play();
 
 	private:
-		bool   whitesTurn;
-		int    winner;
-		Board  board;
-		Player *whitePlayer;
-		Player *blackPlayer;
-		//Data   *data
+		bool    verbose;
+		bool    whitesTurn;
+		bool    gameOver;
+		int     winner;
+		Board   board;
+		Player* whitePlayer;
+		Player* blackPlayer;
+		Player* playerToMove;
+		char*   gameData;
 
 		void   printBoard();
 		int    checkWinner();
+		bool   boardFull();
 		void   move();
 };
 
