@@ -17,7 +17,6 @@ std::string Game::play()
 	{
 		if(verbose)
 			printBoard();
-		gameOver = boardFull();
 		winner = checkWinner();
 		if(winner != 0)
 		{
@@ -118,16 +117,7 @@ int Game::checkWinner()
 
 bool Game::boardFull()
 {
-	if((board.spaceStatus(0, 5) != 0) &&
-           (board.spaceStatus(1, 5) != 0) &&
-           (board.spaceStatus(2, 5) != 0) && 
-           (board.spaceStatus(3, 5) != 0) &&
-           (board.spaceStatus(4, 5) != 0) &&
-           (board.spaceStatus(5, 5) != 0) &&
-           (board.spaceStatus(6, 5) != 0))
-		return true;
-	else
-		return false;
+	return board.full();
 }
 
 void Game::move()
@@ -141,11 +131,11 @@ void Game::move()
 	if(whitesTurn)
 	{
 		whitesTurn = false;
-		playerToMove = whitePlayer;
+		playerToMove = blackPlayer;
 	}
 	else
 	{
 		whitesTurn = true;
-		playerToMove = blackPlayer;
+		playerToMove = whitePlayer;
 	}
 }

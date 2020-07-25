@@ -17,7 +17,6 @@ class Game
 	private:
 		bool        verbose;
 		bool        whitesTurn;
-		bool        gameOver;
 		int         winner;
 		Board       board;
 		Player*     whitePlayer;
