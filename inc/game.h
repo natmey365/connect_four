@@ -14,7 +14,7 @@ class Game
 	private:
 		bool   whitesTurn;
 		int    winner;
-		Board  *board;
+		Board  board;
 		Player *whitePlayer;
 		Player *blackPlayer;
 		//Data   *data

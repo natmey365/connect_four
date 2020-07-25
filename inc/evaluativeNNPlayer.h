@@ -4,7 +4,7 @@
 #define EvaluativeNNPLAYER_H
 
 #include "player.h"
-#include "neural_network.h"
+#include "neuralNetwork.h"
 #include "layer.h"
 #include "perceptron.h"
 #include "activations.h"
@@ -13,11 +13,11 @@
 class EvaluativeNNPlayer : public Player
 {
 	public:
-		EvaluativeNNPlayer(Neural_Network network);
-		int move(Board *board);
+		EvaluativeNNPlayer(NeuralNetwork network);
+		int move(Board& board);
 
 	private:
-		Neural_Network nn;
+		NeuralNetwork nn;
 		float evaluations[7];
 		Board moves[7];
 };

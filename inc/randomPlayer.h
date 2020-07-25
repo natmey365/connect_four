@@ -15,7 +15,7 @@ class RandomPlayer : public Player
 {
 	public:
 		RandomPlayer();
-		int move(Board *board);
+		int move(Board& board);
 };
 
 #endif

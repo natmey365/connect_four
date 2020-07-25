@@ -6,18 +6,11 @@
 
 Board::Board()
 {
-	for(int i = 0; i < 6; i++)
-	{
-		for(int j = 0; j < 7; j++)
-		{
-			spaces[i][j] = new Space;
-		}
-	}
 }
 
 bool Board::columnFull(int j)
 {
-	if(spaces[0][j]->status() == 0)
+	if(spaces[0][j].status() == 0)
 		return false;
 	return true;
 }
@@ -28,7 +21,7 @@ int Board::placePiece(int j, bool boolean)
 		return 1;
 	for(int i = 5; i >= 0 ; i--)
 	{
-		if(!spaces[i][j]->placePiece(boolean))
+		if(!spaces[i][j].placePiece(boolean))
 			return 0;	// SUCCESS
 	}
 	return 1;		// FAIL
@@ -36,7 +29,7 @@ int Board::placePiece(int j, bool boolean)
 
 int Board::spaceStatus(int i, int j)
 {
-	int status = spaces[i][j]->status();
+	int status = spaces[i][j].status();
 	return status;
 }
 
@@ -59,9 +52,9 @@ void Board::print()
         {
                 for(int j = 0; j < 7; j++)
                 {
-                        if(this->spaceStatus(i, j) == 1)
+                        if(spaces[i][j].status() == 1)
                                 std::cout << "W";
-                        else if(this->spaceStatus(i, j) == -1)
+                        else if(spaces[i][j].status() == -1)
                                 std::cout << "B";
                         else
                                 std::cout << " ";

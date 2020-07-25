@@ -8,11 +8,12 @@ class Space
 {
 	public:
 		Space();
+		Space(const Space& rhs);
 		int status();
 		int placePiece(bool boolean);
 
 	private:
-		Piece *piece;
+		Piece* piece;
 
 };
 

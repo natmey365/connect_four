@@ -10,6 +10,8 @@
 #include "piece.h"
 #include "player.h"
 #include "randomPlayer.h"
+#include "evaluativeNNPlayer.h"
+#include "neuralNetwork.h"
 
 int main();
 

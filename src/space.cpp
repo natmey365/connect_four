@@ -8,6 +8,11 @@ Space::Space() : piece(0)
 {
 }
 
+Space::Space(const Space& rhs)
+{
+	
+}
+
 int Space::status()
 {
 	if(piece == NULL)
