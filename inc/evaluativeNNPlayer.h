@@ -18,8 +18,6 @@ class EvaluativeNNPlayer : public Player
 
 	private:
 		NeuralNetwork nn;
-		float evaluations[7];
-		Board moves[7];
 };
 
 #endif

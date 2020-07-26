@@ -11,7 +11,10 @@ int main(int argc, char* argv[])
 			verbose = true;
 	}
 
-	Game game(new RandomPlayer, new RandomPlayer, verbose);
-	std::string gameData = game.play();
-	std::cout << "Game data: " << gameData << std::endl;
+	NeuralNetwork nn;
+	EvaluativeNNPlayer player1(nn);
+
+	//Game game(new HumanPlayer, new RandomPlayer, verbose);
+	//std::string gameData = game.play();
+	//std::cout << "Game data: " << gameData << std::endl;
 }
