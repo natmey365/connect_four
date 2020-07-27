@@ -7,7 +7,7 @@ RandomPlayer::RandomPlayer()
         srand(time(NULL));
 }
 
-int RandomPlayer::move(Board& board)
+int RandomPlayer::move(const Board& board)
 {
         return rand() % 7;
 }

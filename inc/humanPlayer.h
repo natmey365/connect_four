@@ -13,7 +13,7 @@ class HumanPlayer : public Player
 {
 	public:
 		HumanPlayer();
-		int move(Board& board);
+		int move(const Board& board);
 };
 
 #endif

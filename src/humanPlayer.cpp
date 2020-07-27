@@ -5,7 +5,7 @@
 HumanPlayer::HumanPlayer()
 {}
 
-int HumanPlayer::move(Board& board)
+int HumanPlayer::move(const Board& board)
 {
 	int column;
 	std::cout << "Enter an integer representing the column of your move: ";

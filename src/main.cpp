@@ -10,11 +10,20 @@ int main(int argc, char* argv[])
 		if(!strcmp(argv[i], "-v"))
 			verbose = true;
 	}
+	
+	int numLayers = 4;
+	int shape[4] = {42*3, 42*3*3, 42*3*3, 1};
+	NeuralNetwork nn(numLayers, shape, &sigmoid);
 
-	NeuralNetwork nn;
-	EvaluativeNNPlayer player1(nn);
+	Player* player1 = new RandomPlayer;
+	//Player* player1 = new HumanPlayer;
+	//Player* player1 = new EvaluativeNNPlayer(&nn);
 
-	//Game game(new HumanPlayer, new RandomPlayer, verbose);
-	//std::string gameData = game.play();
-	//std::cout << "Game data: " << gameData << std::endl;
+	Player* player2 = new RandomPlayer;
+	//Player* player2 = new HumanPlayer;
+	//Player* player2 = new EvaluativeNNPlayer(&nn);
+
+	Game game(player1, player2, verbose);
+	std::string gameData = game.play();
+	std::cout << "Game data: " << gameData << std::endl;
 }

@@ -2,12 +2,12 @@
 
 #include "player.h"
 
-void Player::setColor(bool b)
+void Player::setIsWhite(bool b)
 {
 	isWhite = b;
 }
 
-bool Player::getColor()
+bool Player::getIsWhite()
 {
 	return isWhite;
 }

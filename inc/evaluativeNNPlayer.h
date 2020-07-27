@@ -13,11 +13,11 @@
 class EvaluativeNNPlayer : public Player
 {
 	public:
-		EvaluativeNNPlayer(NeuralNetwork network);
-		int move(Board& board);
+		EvaluativeNNPlayer(NeuralNetwork* network);
+		int move(const Board& board);
 
 	private:
-		NeuralNetwork nn;
+		NeuralNetwork* nn;
 };
 
 #endif

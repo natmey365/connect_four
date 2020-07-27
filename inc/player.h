@@ -8,11 +8,11 @@
 class Player
 {
 	public:
-		virtual int move(Board& board) = 0;
-		void setColor(bool b);
-		bool getColor();
+		virtual int move(const Board& board) = 0;
+		void setIsWhite(bool b);
+		bool getIsWhite();
 
-	private:
+	protected:
 		bool isWhite;
 };
 
