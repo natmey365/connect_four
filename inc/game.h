@@ -11,7 +11,7 @@
 class Game
 {
 	public:
-		Game(Player* player1, Player* player2, bool boolean);
+		Game(Player* player1, Player* player2, bool _verbose);
 		std::string  play();
 
 	private:
