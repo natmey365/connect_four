@@ -25,5 +25,5 @@ int main(int argc, char* argv[])
 
 	Game game(player1, player2, verbose);
 	std::string gameData = game.play();
-	std::cout << "Game data: " << gameData << std::endl;
+	//std::cout << "Game data: " << gameData << std::endl;
 }
