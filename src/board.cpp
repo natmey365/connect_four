@@ -23,7 +23,7 @@ int Board::placePiece(int j, bool boolean)
 		if(!spaces[i][j].placePiece(boolean))
 			return 0;	// SUCCESS
 	}
-	return 1;		// FAIL
+	return 1;			// FAIL
 }
 
 int Board::spaceStatus(int i, int j)

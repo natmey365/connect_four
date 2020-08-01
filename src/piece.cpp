@@ -3,6 +3,9 @@
 #include "piece.h"
 #include <iostream>
 
+Piece::Piece()
+{}
+
 Piece::Piece(bool boolean)
 {
 	is_white = boolean;

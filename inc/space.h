@@ -3,18 +3,20 @@
 #define SPACE_H
 
 #include <iostream>
+#include "piece.h"
 
 class Space
 {
 	public:
 		Space();
-		int status();
-		int placePiece(bool boolean);
+		Space(const Space& original);
+		~Space();
+
+		int    status();
+		int    placePiece(bool boolean);
 
 	private:
-		bool occupied;
-		bool isWhite;
-
+		Piece*   piece;
 };
 
 #endif

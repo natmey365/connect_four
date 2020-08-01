@@ -6,6 +6,7 @@
 class Piece
 {
 	public:
+		Piece();
 		Piece(bool boolean);
 		bool isWhite();
 
