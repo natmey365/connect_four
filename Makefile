@@ -16,7 +16,7 @@ OBJ_FILES    := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES)) \
 # Compiler and flags
 #======================================================
 CPP         := g++
-LDFLAGS     :=
+LDFLAGS     := 
 CPPFLAGS    := -Wall -I$(INC_DIR) -I$(NN_INC_DIR)
 
 #======================================================
