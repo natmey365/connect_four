@@ -7,6 +7,17 @@
 Board::Board()
 {}
 
+/*Board::Board(const Board& original)
+{
+	for(int i=0; i<6; i++)
+	{
+		for(int j=0; j<7; j++)
+		{
+			spaces[i][j] = original.spaces[i][j];
+		}
+	}
+}*/
+
 bool Board::columnFull(int j)
 {
 	if(spaces[0][j].status() == 0)
@@ -15,7 +26,8 @@ bool Board::columnFull(int j)
 }
 
 int Board::placePiece(int j, bool boolean)
-{	
+{
+	std::cout << spaces << std::endl;
 	if(j > 6)
 		return 1;
 	for(int i = 5; i >= 0 ; i--)

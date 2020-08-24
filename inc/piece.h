@@ -8,10 +8,10 @@ class Piece
 	public:
 		Piece();
 		Piece(bool boolean);
-		bool isWhite();
+		bool getIsWhite();
 
 	private:
-		bool is_white;
+		bool isWhite;
 };
 
 #endif

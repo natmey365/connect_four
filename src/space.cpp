@@ -5,7 +5,7 @@
 Space::Space() : piece(0)
 {}
 
-Space::Space(const Space& original)
+/*Space::Space(const Space& original)
 {
 	if(original.piece != NULL)
 	{
@@ -14,7 +14,7 @@ Space::Space(const Space& original)
 	}
 	else
 		piece = 0;
-}
+}*/
 
 Space::~Space()
 {
@@ -26,7 +26,7 @@ int Space::status()
 {
 	if(piece == NULL)
 		return 0;
-	else if(piece->isWhite())
+	else if(piece->getIsWhite())
 		return 1;
 	else
 		return -1;

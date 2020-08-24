@@ -8,10 +8,10 @@ Piece::Piece()
 
 Piece::Piece(bool boolean)
 {
-	is_white = boolean;
+	isWhite = boolean;
 }
 
-bool Piece::isWhite()
+bool Piece::getIsWhite()
 {
-	return is_white;
+	return isWhite;
 }

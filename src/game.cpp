@@ -130,7 +130,7 @@ void Game::move()
 			printBoard();
 		}
 	}
-	
+	std::cout << "done thinking" << std::endl;
 	if(whitesTurn)
 	{
 		whitesTurn = false;

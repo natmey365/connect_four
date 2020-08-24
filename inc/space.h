@@ -9,7 +9,7 @@ class Space
 {
 	public:
 		Space();
-		Space(const Space& original);
+		//Space(const Space& original);
 		~Space();
 
 		int    status();
