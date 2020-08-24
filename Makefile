@@ -47,4 +47,4 @@ $(NN_OBJ_DIR):
 	mkdir -p $(NN_OBJ_DIR)
 
 clean:
-	rm -rf $(OBJ_DIR)/* $(NN_OBJ_DIR)/* $(EXECUTABLES)
+	rm -rf $(OBJ_DIR) $(NN_OBJ_DIR) $(EXECUTABLES)
