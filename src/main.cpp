@@ -15,12 +15,8 @@ void func(const Board& board)
 
 int main(int argc, char* argv[])
 {
-	bool verbose = false;
-	for(int i = 1; i < argc; i++)
-	{
-		if(!strcmp(argv[i], "-v"))
-			verbose = true;
-	}
+	bool verbose;
+	argParse(argc, argv, verbose);
 
 	bool isWhite = true;
 	Board board;

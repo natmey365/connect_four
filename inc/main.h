@@ -15,6 +15,7 @@
 #include "randomPlayer.h"
 #include "evaluativeNNPlayer.h"
 #include "humanPlayer.h"
+#include "argParse.h"
 
 #include "neuralNetwork.h"
 
