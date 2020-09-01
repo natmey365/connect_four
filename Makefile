@@ -27,7 +27,7 @@ CPPFLAGS    := -Wall -I$(INC_DIR) -I$(NN_INC_DIR)
 #======================================================
 .PHONY: clean
 
-all: $(EXECUTABLES)
+all: clean $(EXECUTABLES)
 
 # Targets
 main: $(OBJ_FILES)
