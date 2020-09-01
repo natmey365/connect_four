@@ -27,7 +27,6 @@ bool Board::columnFull(int j)
 
 int Board::placePiece(int j, bool boolean)
 {
-	std::cout << spaces << std::endl;
 	if(j > 6)
 		return 1;
 	for(int i = 5; i >= 0 ; i--)

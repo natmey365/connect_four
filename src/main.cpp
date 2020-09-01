@@ -10,6 +10,8 @@ void func(const Board& board)
 		boards[i] = board;
 		if(!boards[i].placePiece(i, true)) // Failed
 			boards[i].print();
+		std::cout << "Board:  " << &boards[i] << std::endl;
+		std::cout << "Spaces: " << &boards[i].spaces << std::endl;
 	}
 }
 
@@ -18,15 +20,8 @@ int main(int argc, char* argv[])
 	bool verbose;
 	argParse(argc, argv, verbose);
 
-	bool isWhite = true;
 	Board board;
 	func(board);
-
-	Space space1;
-	Space space2 = space1;
-	space1.placePiece(true);
-	std::cout << space1.status() << std::endl;
-	std::cout << space2.status() << std::endl;
 
 	int numLayers = 4;
 	int shape[4] = {42*3, 42*3*3, 42*3*3, 1};

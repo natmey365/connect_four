@@ -9,13 +9,13 @@ EvaluativeNNPlayer::EvaluativeNNPlayer(NeuralNetwork* network) : nn(network)
 
 int EvaluativeNNPlayer::move(const Board& board)
 {
-	std::cout << "eval player is thinking" << std::endl;
+	std::cout << "trying\n";
 	// Generate and evaluate boards for each of the possible moves
 	Board boards[7];
-	//float evaluations[7];
+	float evaluations[7];
 	for(int i = 0; i < 7; i++)
 	{
-//		boards[i] = board;
+		boards[i] = board;
 /*		if(!boards[i].placePiece(i, isWhite)) // Failed
 		{
 			//evaluations[i] = 0;
@@ -23,6 +23,7 @@ int EvaluativeNNPlayer::move(const Board& board)
 		}
 		//else
 			//evaluations[i] = 0;//nn->forwardProp(boards[i], evaluations[i]);	
+*/
 	}
 
 /*	// Choose the move with the best evaluation and return it
@@ -30,7 +31,8 @@ int EvaluativeNNPlayer::move(const Board& board)
 	int index;
 	largest = evaluations[0];
 	index = 0;
+
+	}
 */
-}
 	return rand() % 7;
 }

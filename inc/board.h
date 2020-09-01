@@ -16,7 +16,7 @@ class Board
 		void print();
 		bool full();
 
-	private:
+//	private:
 		Space spaces[6][7];
 };
 

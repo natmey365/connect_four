@@ -16,6 +16,7 @@
 #include "evaluativeNNPlayer.h"
 #include "humanPlayer.h"
 #include "argParse.h"
+#include "convertBoard.h"
 
 #include "neuralNetwork.h"
 
