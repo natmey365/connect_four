@@ -2,6 +2,7 @@
 #ifndef SPACE_H
 #define SPACE_H
 
+#include <string.h>
 #include <iostream>
 #include "piece.h"
 
