@@ -5,7 +5,7 @@
 Space::Space() : piece(0)
 {}
 
-/*Space::Space(const Space& original)
+Space::Space(const Space& original)
 {
 	if(original.piece != NULL)
 	{
@@ -14,7 +14,7 @@ Space::Space() : piece(0)
 	}
 	else
 		piece = 0;
-}*/
+}
 
 Space::~Space()
 {

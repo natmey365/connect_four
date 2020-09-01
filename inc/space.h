@@ -9,13 +9,13 @@ class Space
 {
 	public:
 		Space();
-		//Space(const Space& original);
+		Space(const Space& original);
 		~Space();
 
 		int    status();
 		int    placePiece(bool boolean);
 
-	private:
+//	private:
 		Piece*   piece;
 };
 
