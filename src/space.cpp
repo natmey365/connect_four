@@ -18,9 +18,7 @@ Space::Space(const Space& original)
 
 Space::~Space()
 {
-	std::cout << "space destructor\n";
-	if(piece != NULL)
-		delete piece;
+	delete piece;
 }
 
 int Space::status()
