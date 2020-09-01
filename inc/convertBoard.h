@@ -1,6 +1,6 @@
 // C++ header file defining functions for converting Connect Four boards to Neural Network inputs
-#ifndef BOARD_CONVERSION_H
-#define BOARD_CONVERSION_H
+#ifndef CONVERTBOARD_H
+#define CONVERTBOARD_H
 
 #include "board.h"
 

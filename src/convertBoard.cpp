@@ -1,6 +1,6 @@
 // C++ file defining functions for converting Connect Four boards to Neural Network inputs
 
-#include "board_conversion.h"
+#include "convertBoard.h"
 
 void flatten_one_hot(Board b, float *nn_inputs)
 {
