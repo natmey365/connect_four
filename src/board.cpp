@@ -7,7 +7,7 @@
 Board::Board()
 {}
 
-bool Board::columnFull(int j)
+bool Board::columnFull(int j) const
 {
 	if(spaces[0][j].status() == 0)
 		return false;
@@ -26,13 +26,13 @@ int Board::placePiece(int j, bool boolean)
 	return 1;			// FAIL
 }
 
-int Board::spaceStatus(int i, int j)
+int Board::spaceStatus(int i, int j) const
 {
 	int status = spaces[i][j].status();
 	return status;
 }
 
-void Board::print()
+void Board::print() const
 {
         for(int i = 0; i < 6; i++)
         {
@@ -50,7 +50,7 @@ void Board::print()
         std::cout << std::endl;
 }
 
-bool Board::full()
+bool Board::full() const
 {
 	if((spaces[0][0].status() != 0) &&
            (spaces[0][1].status() != 0) &&

@@ -13,10 +13,10 @@ class Space
 		Space(const Space& original);
 		~Space();
 
-		int    status();
+		int    status() const;
 		int    placePiece(bool boolean);
 
-//	private:
+	private:
 		Piece*   piece;
 };
 

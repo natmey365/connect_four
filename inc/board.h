@@ -9,13 +9,13 @@ class Board
 	public:
 		Board();
 
-		bool columnFull(int j);
+		bool columnFull(int j) const;
 		int placePiece(int j, bool boolean);
-		int spaceStatus(int i, int j);
-		void print();
-		bool full();
+		int spaceStatus(int i, int j) const;
+		void print() const;
+		bool full() const;
 
-//	private:
+	private:
 		Space spaces[6][7];
 };
 

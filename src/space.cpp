@@ -21,7 +21,7 @@ Space::~Space()
 	delete piece;
 }
 
-int Space::status()
+int Space::status() const
 {
 	if(piece == NULL)
 		return 0;

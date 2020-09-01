@@ -9,6 +9,7 @@
 #include "perceptron.h"
 #include "activations.h"
 #include "board.h"
+#include "convertBoard.h"
 
 class EvaluativeNNPlayer : public Player
 {

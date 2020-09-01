@@ -2,7 +2,7 @@
 
 #include "convertBoard.h"
 
-void flatten_one_hot(Board b, float *nn_inputs)
+void flatten_one_hot(const Board& b, float *nn_inputs)
 {
 	int x = 0;
 	for(int i = 0; i < 6; i++)
@@ -31,7 +31,7 @@ void flatten_one_hot(Board b, float *nn_inputs)
 	}
 }
 
-void flatten_trinary(Board b, float *nn_inputs)
+void flatten_trinary(const Board& b, float *nn_inputs)
 {       
         int x = 0;
         for(int i = 0; i < 6; i++)

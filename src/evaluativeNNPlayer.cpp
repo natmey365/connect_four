@@ -9,30 +9,24 @@ EvaluativeNNPlayer::EvaluativeNNPlayer(NeuralNetwork* network) : nn(network)
 
 int EvaluativeNNPlayer::move(const Board& board)
 {
-	std::cout << "trying\n";
-	// Generate and evaluate boards for each of the possible moves
-	Board boards[7];
+	// Generate and evaluate boards for each of the possible moves and save index of largest evaluation
+	Board boards[7] = {board, board, board, board, board, board, board};
 	float evaluations[7];
-	for(int i = 0; i < 7; i++)
+	float largest = -100;
+	int index = 0;
+/*	for(int i = 0; i < 7; i++)
 	{
-		std::cout << i << std::endl;
-		boards[i] = board;
-/*		if(!boards[i].placePiece(i, isWhite)) // Failed
+		if(!boards[i].placePiece(i, isWhite)) // Succeeded
 		{
-			//evaluations[i] = 0;
-			boards[i].print();
+			nn->forwardProp(boards[i], evaluations[i]);
 		}
-		//else
-			//evaluations[i] = 0;//nn->forwardProp(boards[i], evaluations[i]);	
-*/
-	}
-
-/*	// Choose the move with the best evaluation and return it
-	float largest;
-	int index;
-	largest = evaluations[0];
-	index = 0;
-
+		else
+			evaluations[i] = -100;
+		if(evaluations[i] > largest)
+		{
+			largest = evaluations[i];
+			index = i;
+		}
 	}
 */
 	return rand() % 7;
