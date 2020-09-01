@@ -15,6 +15,7 @@ int EvaluativeNNPlayer::move(const Board& board)
 	float evaluations[7];
 	for(int i = 0; i < 7; i++)
 	{
+		std::cout << i << std::endl;
 		boards[i] = board;
 /*		if(!boards[i].placePiece(i, isWhite)) // Failed
 		{
