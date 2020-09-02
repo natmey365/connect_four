@@ -14,20 +14,24 @@ int EvaluativeNNPlayer::move(const Board& board)
 	float evaluations[7];
 	float largest = -100;
 	int index = 0;
-/*	for(int i = 0; i < 7; i++)
+	float nn_inputs[42*3];
+	for(int i = 0; i < 7; i++)
 	{
 		if(!boards[i].placePiece(i, isWhite)) // Succeeded
 		{
-			nn->forwardProp(boards[i], evaluations[i]);
+			boards[i].print();
+			flatten_trinary(board, nn_inputs);
+			nn->forwardProp(nn_inputs, &evaluations[i]);
 		}
 		else
 			evaluations[i] = -100;
+		std::cout << i <<": " << evaluations[i] << std::endl;
 		if(evaluations[i] > largest)
 		{
 			largest = evaluations[i];
 			index = i;
 		}
 	}
-*/
-	return rand() % 7;
+	std::cout << index << std::endl;
+	return index;
 }

@@ -4,7 +4,7 @@
 
 #include "board.h"
 
-void flatten_one_hot(const Board& b);
-void flatten_trinary(const Board& b);
+void flatten_one_hot(const Board& b, float* nn_inputs);
+void flatten_trinary(const Board& b, float* nn_inputs);
 
 #endif
