@@ -1,80 +1,73 @@
 #======================================================
 # Files and directories
 #======================================================
-EXECUTABLES  := main
-
-C4_DIR       := .
-C4_SRC_DIR   := $(C4_DIR)/src
-C4_INC_DIR   := $(C4_DIR)/inc
+LIB          := lib_connect_four.a
+SRC_DIR      := src
+INC_DIR      := inc
 NN_DIR       := neural_network
-NN_SRC_DIR   := $(NN_DIR)/src
-NN_INC_DIR   := $(NN_DIR)/inc
+TEST_DIR     := test
 OBJ_DIR      := obj
-DEP_DIR      := $(OBJ_DIR)/.dep
-SRC_DIRS     := $(SRC_DIR) $(NN_SRC_DIR)
-INC_DIRS     := $(INC_DIR) $(NN_INC_DIR)
-REPO_DIRS    := $(C4_DIR) $(NN_DIR)
 
-C4_SRC_FILES    := $(wildcard $(C4_SRC_DIR)/*.cpp)
-NN_SRC_FILES    := $(wildcard $(NN_SRC_DIR)/*.cpp)
-C4_INC_FILES    := $(wildcard $(C4_INC_DIR)/*.h)
-NN_INC_FILES    := $(wildcard $(NN_INC_DIR)/*.h)
-OBJS            := $(patsubst $(C4_SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(C4_SRC_FILES)) \
-                   $(patsubst $(NN_SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(NN_SRC_FILES))
+SRC_FILES    := $(wildcard $(SRC_DIR)/*.cpp)
+INC_FILES    := $(wildcard $(INC_DIR)/*.h)
+OBJS         := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
 
 #======================================================
-# Compiler and flags
+# Compiler, Archiver, and flags
 #======================================================
 CPP            := g++
-COMPILE_FLAGS  := -Wall -I$(C4_INC_DIR) -I$(NN_INC_DIR)
-DEP_FLAGS      := -MT $$@ -MMD -MP -MF $(DEP_DIR)/$$*.d
-
-#======================================================
-# Includes
-#======================================================
-include makefiles/templates.mk
+COMPILE_FLAGS  := -Wall -I$(INC_DIR) -I$(NN_DIR)/inc -L$(NN_DIR) -l_neural_network
+AR             := ar rcs
+AR_FLAGS       :=
 
 #======================================================
 # Targets
 #======================================================
-.PHONY: clean
+.PHONY: clean test
 
-all: $(EXECUTABLES)
+all: $(LIB) test
 
-main: $(OBJS)
-	@#cat obj/.dep/argParse.d
-	@#cat obj/.dep/board.d
-	$(CPP) -o $@ $^
+#=========
+# Library
+#=========
+lib: $(LIB)
+connect_four: $(LIB)
+$(LIB): lib_deps $(OBJS)
+	@echo "============================================="; \
+	 echo "= Building $(LIB)               ="; \
+	 echo "============================================="
+	$(AR) $@ $(OBJS)
 
-$(foreach repo_dir,$(REPO_DIRS),$(eval $(call COMPILE_template,$(repo_dir))))
+lib_deps:
+	$(MAKE) -C $(NN_DIR) neural_network
+
+$(OBJ_DIR)/%.o: src/%.cpp inc/%.h | $(OBJ_DIR)
+	$(CPP) $(COMPILE_FLAGS) -c -o $@ $<
 
 $(OBJ_DIR):
 	mkdir -p $@
 
-$(DEP_DIR): | $(OBJ_DIR)
-	mkdir -p $@
+compile: $(OBJS)
 
-.PRECIOUS: $(DEP_DIR)/%.d
-$(DEP_DIR)/%.d: ;
+#=========
+# Test
+#=========
+test:
+	@echo "============================================"; \
+	 echo "= Running Tests                            ="; \
+	 echo "============================================"
+	$(MAKE) -C $(TEST_DIR)
 
-#DEP_FILES := $(C4_SRC_FILES:%.cpp=$(DEP_DIR)/%.d) $(NN_SRC_FILES:%.cpp=$(NN_DEP_DIR)/%.d)
-DEP_FILES := $(wildcard $(DEP_DIR)/*.d)
-$(DEP_FILES):
-include $(wildcard $(DEP_FILES))
-
+#=========
+# Clean
+#=========
 clean:
-	rm -rf $(OBJ_DIR) $(EXECUTABLES)
+	$(MAKE) -C $(NN_DIR) clean
+	$(MAKE) -C $(TEST_DIR) clean
+	rm -rf $(OBJ_DIR)
 
 #======================================================
 # Testing
 #======================================================
-C4_SRC_FILES:
-	@echo $(C4_SRC_FILES)
-
-deps: | $(DEP_DIR)
-	$(CPP) $(COMPILE_FLAGS) -MM inc/board.h
-	@#@echo $@:; \
-	@#cat $(DEP_FILES)
-
-dep_files: 
-	@echo $(DEP_FILES)	
+try:
+	@echo $(NN_DIR)/inc 
