@@ -16,7 +16,7 @@ OBJS         := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
 # Compiler, Archiver, and flags
 #======================================================
 CPP            := g++
-COMPILE_FLAGS  := -Wall -I$(INC_DIR) -I$(NN_DIR)/inc -L$(NN_DIR) -l_neural_network
+COMPILE_FLAGS  := -Wall -I$(INC_DIR) -I$(NN_DIR)/inc
 AR             := ar rcs
 AR_FLAGS       :=
 
