@@ -1,6 +1,6 @@
 // Top level C++ file
 
-#include "main.h"
+#include "randomPlayers.h"
 
 int main(int argc, char* argv[])
 {
@@ -40,5 +40,4 @@ int main(int argc, char* argv[])
 	std::string gameData = game.play();
 	if(verbose)
 		std::cout << "Game data: " << gameData << std::endl;
-	return 0;
 }

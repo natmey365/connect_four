@@ -27,14 +27,28 @@ all: test
 #=========
 # Run
 #=========
-test: $(BINS)
+test: compile
+	@echo "============================================="; \
+	 echo "= Running Tests                             ="; \
+ 	 echo "============================================="
 	@for test in $(BINS); do \
+		echo "./$$test"; \
 		./$$test $(OPTS); \
+		if [ $$? -ne 0 ]; then \
+			echo "Failed $$test"; \
+			break; \
+		fi; \
 	done
 
 #=========
 # Build
 #=========
+compile:
+	@echo "============================================="; \
+	 echo "= Compiling Tests                           ="; \
+ 	 echo "============================================="
+	$(MAKE) $(BINS)
+
 $(BIN_DIR)/%: src/%.cpp inc/%.h | $(BIN_DIR)
 	$(CPP) $(COMPILE_FLAGS) -o $@ $<
 

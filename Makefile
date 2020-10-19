@@ -25,7 +25,7 @@ AR_FLAGS       :=
 #======================================================
 .PHONY: clean test
 
-all: $(LIB) test
+all: $(LIB)
 
 #=========
 # Library
@@ -58,7 +58,7 @@ lib_objs:
 #=========
 test: $(LIB)
 	@echo "============================================="; \
-	 echo "= Running Tests                             ="; \
+	 echo "= make test                                 ="; \
 	 echo "============================================="
 	$(MAKE) -C $(TEST_DIR)
 
