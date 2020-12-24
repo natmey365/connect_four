@@ -15,5 +15,6 @@
 #include "evaluativeNNPlayer.h"
 #include "piece.h"
 #include "space.h"
+#include "neuralNetwork.h"
 
 #endif

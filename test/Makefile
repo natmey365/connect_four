@@ -1,11 +1,13 @@
 #======================================================
 # Files and directories
 #======================================================
-LIB               := connect_four
+C4_LIB            := connect_four
+NN_LIB            := neural_network
 SRC_DIR           := src
 INC_DIR           := inc
 TEST_DIR          := test
 BIN_DIR           := bin
+NN_DIR            := ../neural_network
 
 SRC_FILES     := $(wildcard $(SRC_DIR)/*.cpp)
 INC_FILES     := $(wildcard $(INC_DIR)/*.h)
@@ -15,7 +17,7 @@ BINS          := $(patsubst $(SRC_DIR)/%.cpp,$(BIN_DIR)/%,$(SRC_FILES))
 # Compiler and flags
 #======================================================
 CPP            := g++
-COMPILE_FLAGS  := -Wall -I$(INC_DIR) -I../inc -I../neural_network/inc -L../ -l_$(LIB)
+COMPILE_FLAGS  := -Wall -I$(INC_DIR) -I../inc -I../neural_network/inc -L../ -L../$(NN_DIR) -l_$(C4_LIB) -l_$(NN_LIB)
 
 #======================================================
 # Targets

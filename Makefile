@@ -36,7 +36,7 @@ $(LIB): lib_deps lib_objs
 	@echo "============================================="; \
 	 echo "= Building $(LIB)               ="; \
 	 echo "============================================="
-	$(AR) $@ $(OBJS)
+	$(AR) $@ $(OBJS) $(NN_DIR)/lib_neural_network.a
 
 lib_deps:
 	$(MAKE) -C $(NN_DIR) neural_network
